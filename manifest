@@ -54,6 +54,22 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/alecthomas/template",
+			"repository": "https://github.com/alecthomas/template",
+			"vcs": "git",
+			"revision": "a0175ee3bccc567396460bf5acd36800cb10c49c",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/alecthomas/units",
+			"repository": "https://github.com/alecthomas/units",
+			"vcs": "git",
+			"revision": "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/armon/consul-api",
 			"repository": "https://github.com/armon/consul-api",
 			"vcs": "git",
@@ -75,6 +91,14 @@
 			"repository": "https://github.com/campoy/embedmd",
 			"vcs": "git",
 			"revision": "97c13d6e41602fc6e397eb51c45f38069371a969",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/cheggaaa/pb",
+			"repository": "https://github.com/cheggaaa/pb",
+			"vcs": "git",
+			"revision": "751f9183c336d1bb8ef77beb95243f367d1d90e1",
 			"branch": "master",
 			"notests": true
 		},
@@ -627,6 +651,14 @@
 			"revision": "b2862e3d0a775f18c7cfe02273500ae307b61218",
 			"branch": "master",
 			"path": "encoding/secconf",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/zach-klippenstein/goadb",
+			"repository": "https://github.com/zach-klippenstein/goadb",
+			"vcs": "git",
+			"revision": "029cc6bee4812bf83c5d5fa58c49a82ff000d02c",
+			"branch": "master",
 			"notests": true
 		},
 		{
@@ -1350,6 +1382,14 @@
 			"repository": "https://github.com/grpc/grpc-go",
 			"vcs": "git",
 			"revision": "55ef601361b865e7783c7b35db3d8d702fb93774",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "gopkg.in/alecthomas/kingpin.v2",
+			"repository": "https://gopkg.in/alecthomas/kingpin.v2",
+			"vcs": "git",
+			"revision": "947dcec5ba9c011838740e680966fd7087a71d0d",
 			"branch": "master",
 			"notests": true
 		},
