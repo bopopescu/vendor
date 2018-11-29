@@ -222,6 +222,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/gosuri/uitable",
+			"repository": "https://github.com/gosuri/uitable",
+			"vcs": "git",
+			"revision": "36ee7e946282a3fb1cfecd476ddc9b35d8847e42",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/jessevdk/go-assets",
 			"repository": "https://github.com/jessevdk/go-assets",
 			"vcs": "git",
@@ -258,6 +266,14 @@
 			"repository": "https://github.com/mattn/go-isatty",
 			"vcs": "git",
 			"revision": "3fb116b820352b7f0c281308a4d6250c22d94e27",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/mattn/go-runewidth",
+			"repository": "https://github.com/mattn/go-runewidth",
+			"vcs": "git",
+			"revision": "c88d7e5f2e24de48a200a2655ac8a0910be9a0f7",
 			"branch": "master",
 			"notests": true
 		},
