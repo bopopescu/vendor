@@ -299,6 +299,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/google/uuid",
+			"repository": "https://github.com/google/uuid",
+			"vcs": "git",
+			"revision": "9b3b1e0f5f99ae461456d768e7d301a7acdaa2d8",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/googleapis/gax-go",
 			"repository": "https://github.com/googleapis/gax-go",
 			"vcs": "git",
@@ -367,6 +375,14 @@
 			"repository": "https://github.com/kr/fs",
 			"vcs": "git",
 			"revision": "1455def202f6e05b95cc7bfc7e8ae67ae5141eba",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/lithammer/shortuuid",
+			"repository": "https://github.com/lithammer/shortuuid",
+			"vcs": "git",
+			"revision": "6234948b061f9dbd918c15ec7148c16e18e2bb5c",
 			"branch": "master",
 			"notests": true
 		},
