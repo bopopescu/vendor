@@ -307,6 +307,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/gorilla/websocket",
+			"repository": "https://github.com/gorilla/websocket",
+			"vcs": "git",
+			"revision": "483fb8d7c32fcb4b5636cd293a92e3935932e2f4",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/gosuri/uitable",
 			"repository": "https://github.com/gosuri/uitable",
 			"vcs": "git",
