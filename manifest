@@ -363,6 +363,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/keybase/go-ps",
+			"repository": "https://github.com/keybase/go-ps",
+			"vcs": "git",
+			"revision": "668c8856d9992f97248b3177d45743d2cc1068db",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/kisielk/gotool",
 			"repository": "https://github.com/kisielk/gotool",
 			"vcs": "git",
