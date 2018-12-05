@@ -411,6 +411,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/mattn/anko",
+			"repository": "https://github.com/mattn/anko",
+			"vcs": "git",
+			"revision": "25217f5ecbb2aeb2693486b574a887955e08e770",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/mattn/go-isatty",
 			"repository": "https://github.com/mattn/go-isatty",
 			"vcs": "git",
