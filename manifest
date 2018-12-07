@@ -38,6 +38,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/CloudyKit/jet",
+			"repository": "https://github.com/CloudyKit/jet",
+			"vcs": "git",
+			"revision": "62edd43e4f88c6be452fd5feac77f716f546ebf6",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/DataDog/zstd",
 			"repository": "https://github.com/DataDog/zstd",
 			"vcs": "git",
@@ -590,6 +598,23 @@
 			"repository": "https://github.com/rcrowley/go-metrics",
 			"vcs": "git",
 			"revision": "3113b8401b8a98917cde58f8bbd42a1b1c03b1fd",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shurcooL/httpfs/vfsutil",
+			"repository": "https://github.com/shurcooL/httpfs",
+			"vcs": "git",
+			"revision": "809beceb23714880abc4a382a00c05f89d13b1cc",
+			"branch": "master",
+			"path": "/vfsutil",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/shurcooL/vfsgen",
+			"repository": "https://github.com/shurcooL/vfsgen",
+			"vcs": "git",
+			"revision": "6a9ea43bcacdf716a5c1b38efff722c07adf0069",
 			"branch": "master",
 			"notests": true
 		},
@@ -1209,6 +1234,15 @@
 			"revision": "c5b00d9557fd23dd2a6d9c2f4c80a31d08cac00d",
 			"branch": "master",
 			"path": "go/types/typeutil",
+			"notests": true
+		},
+		{
+			"importpath": "golang.org/x/tools/godoc/vfs",
+			"repository": "https://go.googlesource.com/tools",
+			"vcs": "git",
+			"revision": "bcd4e47d02889ebbc25c9f4bf3d27e4124b0bf9d",
+			"branch": "master",
+			"path": "godoc/vfs",
 			"notests": true
 		},
 		{
