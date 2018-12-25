@@ -484,6 +484,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/objcoding/wxpay.git",
+			"repository": "https://github.com/objcoding/wxpay.git",
+			"vcs": "git",
+			"revision": "0dc738969b7c753e11b5dc62cf3e4083c95d80ca",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/openzipkin/zipkin-go",
 			"repository": "https://github.com/openzipkin/zipkin-go",
 			"vcs": "git",
@@ -858,6 +866,15 @@
 			"revision": "eb0de9b17e854e9b1ccd9963efafc79862359959",
 			"branch": "master",
 			"path": "openpgp",
+			"notests": true
+		},
+		{
+			"importpath": "golang.org/x/crypto/pkcs12",
+			"repository": "https://go.googlesource.com/crypto",
+			"vcs": "git",
+			"revision": "505ab145d0a99da450461ae2c1a9f6cd10d1f447",
+			"branch": "master",
+			"path": "/pkcs12",
 			"notests": true
 		},
 		{
