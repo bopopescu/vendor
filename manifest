@@ -347,6 +347,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/imzjy/wxpay.git",
+			"repository": "https://github.com/imzjy/wxpay.git",
+			"vcs": "git",
+			"revision": "ec90c48b83540e808c6802b6e3753cc6e0b57299",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/inconshreveable/mousetrap",
 			"repository": "https://github.com/inconshreveable/mousetrap",
 			"vcs": "git",
