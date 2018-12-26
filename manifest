@@ -307,6 +307,22 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/google/gopacket",
+			"repository": "https://github.com/google/gopacket",
+			"vcs": "git",
+			"revision": "aae514bb9b6e0b934378e3eb1381a7783821fc16",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/google/gopacket.git",
+			"repository": "https://github.com/google/gopacket.git",
+			"vcs": "git",
+			"revision": "aae514bb9b6e0b934378e3eb1381a7783821fc16",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/google/uuid",
 			"repository": "https://github.com/google/uuid",
 			"vcs": "git",
@@ -457,6 +473,14 @@
 			"revision": "c12348ce28de40eed0136aa2b644d0ee0650e56c",
 			"branch": "master",
 			"path": "/pbutil",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/mdlayher/raw",
+			"repository": "https://github.com/mdlayher/raw",
+			"vcs": "git",
+			"revision": "fa5ef3332ca961deab5782da07b1616fea8a9dd8",
+			"branch": "master",
 			"notests": true
 		},
 		{
@@ -909,6 +933,15 @@
 			"vcs": "git",
 			"revision": "c67002cb31c3a748b7688c27f20d8358b4193582",
 			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "golang.org/x/net/bpf",
+			"repository": "https://go.googlesource.com/net",
+			"vcs": "git",
+			"revision": "927f97764cc334a6575f4b7a1584a147864d5723",
+			"branch": "master",
+			"path": "/bpf",
 			"notests": true
 		},
 		{
