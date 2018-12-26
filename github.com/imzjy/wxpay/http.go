@@ -45,10 +45,15 @@ func (this *AppTrans) Submit(orderId string, amount float64, desc string, client
 		return "", err
 	}
 
+	fmt.Println("AA",placeOrderResult.PrepayId)
+	fmt.Println("Rsm",placeOrderResult.Sign )
+
 	//Verify the sign of response
 	resultInMap := placeOrderResult.ToMap()
 	wantSign := Sign(resultInMap, this.Config.AppKey)
 	gotSign := resultInMap["sign"]
+
+	fmt.Println(wantSign,gotSign,"sign")
 	if wantSign != gotSign {
 		return "", fmt.Errorf("sign not match, want:%s, got:%s", wantSign, gotSign)
 	}
@@ -152,7 +157,7 @@ func (this *AppTrans) newOrderRequest(orderId, amount, desc, clientIp string) ma
 func (this *AppTrans) signedOrderRequestXmlString(orderId, amount, desc, clientIp string) string {
 	order := this.newOrderRequest(orderId, amount, desc, clientIp)
 	sign := Sign(order, this.Config.AppKey)
-	// fmt.Println(sign)
+	fmt.Println("SS@",sign)
 
 	order["sign"] = sign
 
