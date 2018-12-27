@@ -732,6 +732,31 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/vishvananda/netlink.git",
+			"repository": "https://github.com/vishvananda/netlink.git",
+			"vcs": "git",
+			"revision": "332a6983d9d1e222ab7495c3ffa0509e378c463d",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/vishvananda/netlink/nl",
+			"repository": "https://github.com/vishvananda/netlink",
+			"vcs": "git",
+			"revision": "332a6983d9d1e222ab7495c3ffa0509e378c463d",
+			"branch": "master",
+			"path": "/nl",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/vishvananda/netns",
+			"repository": "https://github.com/vishvananda/netns",
+			"vcs": "git",
+			"revision": "13995c7128ccc8e51e9a6bd2b551020a27180abd",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/xordataexchange/crypt/backend",
 			"repository": "https://github.com/xordataexchange/crypt",
 			"vcs": "git",
