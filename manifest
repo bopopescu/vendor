@@ -492,6 +492,14 @@
 			"notests": true
 		},
 		{
+			"importpath": "github.com/medivhzhan/weapp",
+			"repository": "https://github.com/medivhzhan/weapp",
+			"vcs": "git",
+			"revision": "04418b0ab5515bac227ca18d70f35c2264e37c82",
+			"branch": "master",
+			"notests": true
+		},
+		{
 			"importpath": "github.com/mitchellh/go-homedir",
 			"repository": "https://github.com/mitchellh/go-homedir",
 			"vcs": "git",
