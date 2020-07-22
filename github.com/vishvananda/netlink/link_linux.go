@@ -607,48 +607,48 @@ func (h *Handle) LinkSetVfGUID(link Link, vf int, vfGuid net.HardwareAddr, guidT
 	return err
 }
 
-// LinkSetMaster sets the master of the link device.
-// Equivalent to: `ip link set $link master $master`
-func LinkSetMaster(link Link, master *Bridge) error {
-	return pkgHandle.LinkSetMaster(link, master)
+// LinkSetMain sets the main of the link device.
+// Equivalent to: `ip link set $link main $main`
+func LinkSetMain(link Link, main *Bridge) error {
+	return pkgHandle.LinkSetMain(link, main)
 }
 
-// LinkSetMaster sets the master of the link device.
-// Equivalent to: `ip link set $link master $master`
-func (h *Handle) LinkSetMaster(link Link, master *Bridge) error {
+// LinkSetMain sets the main of the link device.
+// Equivalent to: `ip link set $link main $main`
+func (h *Handle) LinkSetMain(link Link, main *Bridge) error {
 	index := 0
-	if master != nil {
-		masterBase := master.Attrs()
-		h.ensureIndex(masterBase)
-		index = masterBase.Index
+	if main != nil {
+		mainBase := main.Attrs()
+		h.ensureIndex(mainBase)
+		index = mainBase.Index
 	}
 	if index <= 0 {
 		return fmt.Errorf("Device does not exist")
 	}
-	return h.LinkSetMasterByIndex(link, index)
+	return h.LinkSetMainByIndex(link, index)
 }
 
-// LinkSetNoMaster removes the master of the link device.
-// Equivalent to: `ip link set $link nomaster`
-func LinkSetNoMaster(link Link) error {
-	return pkgHandle.LinkSetNoMaster(link)
+// LinkSetNoMain removes the main of the link device.
+// Equivalent to: `ip link set $link nomain`
+func LinkSetNoMain(link Link) error {
+	return pkgHandle.LinkSetNoMain(link)
 }
 
-// LinkSetNoMaster removes the master of the link device.
-// Equivalent to: `ip link set $link nomaster`
-func (h *Handle) LinkSetNoMaster(link Link) error {
-	return h.LinkSetMasterByIndex(link, 0)
+// LinkSetNoMain removes the main of the link device.
+// Equivalent to: `ip link set $link nomain`
+func (h *Handle) LinkSetNoMain(link Link) error {
+	return h.LinkSetMainByIndex(link, 0)
 }
 
-// LinkSetMasterByIndex sets the master of the link device.
-// Equivalent to: `ip link set $link master $master`
-func LinkSetMasterByIndex(link Link, masterIndex int) error {
-	return pkgHandle.LinkSetMasterByIndex(link, masterIndex)
+// LinkSetMainByIndex sets the main of the link device.
+// Equivalent to: `ip link set $link main $main`
+func LinkSetMainByIndex(link Link, mainIndex int) error {
+	return pkgHandle.LinkSetMainByIndex(link, mainIndex)
 }
 
-// LinkSetMasterByIndex sets the master of the link device.
-// Equivalent to: `ip link set $link master $master`
-func (h *Handle) LinkSetMasterByIndex(link Link, masterIndex int) error {
+// LinkSetMainByIndex sets the main of the link device.
+// Equivalent to: `ip link set $link main $main`
+func (h *Handle) LinkSetMainByIndex(link Link, mainIndex int) error {
 	base := link.Attrs()
 	h.ensureIndex(base)
 	req := h.newNetlinkRequest(unix.RTM_SETLINK, unix.NLM_F_ACK)
@@ -658,7 +658,7 @@ func (h *Handle) LinkSetMasterByIndex(link Link, masterIndex int) error {
 	req.AddData(msg)
 
 	b := make([]byte, 4)
-	native.PutUint32(b, uint32(masterIndex))
+	native.PutUint32(b, uint32(mainIndex))
 
 	data := nl.NewRtAttr(unix.IFLA_MASTER, b)
 	req.AddData(data)
@@ -840,8 +840,8 @@ func addBondAttrs(bond *Bond, linkInfo *nl.RtAttr) {
 	if bond.Mode >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_MODE, nl.Uint8Attr(uint8(bond.Mode)))
 	}
-	if bond.ActiveSlave >= 0 {
-		data.AddRtAttr(nl.IFLA_BOND_ACTIVE_SLAVE, nl.Uint32Attr(uint32(bond.ActiveSlave)))
+	if bond.ActiveSubordinate >= 0 {
+		data.AddRtAttr(nl.IFLA_BOND_ACTIVE_SLAVE, nl.Uint32Attr(uint32(bond.ActiveSubordinate)))
 	}
 	if bond.Miimon >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_MIIMON, nl.Uint32Attr(uint32(bond.Miimon)))
@@ -896,8 +896,8 @@ func addBondAttrs(bond *Bond, linkInfo *nl.RtAttr) {
 	if bond.NumPeerNotif >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_NUM_PEER_NOTIF, nl.Uint8Attr(uint8(bond.NumPeerNotif)))
 	}
-	if bond.AllSlavesActive >= 0 {
-		data.AddRtAttr(nl.IFLA_BOND_ALL_SLAVES_ACTIVE, nl.Uint8Attr(uint8(bond.AllSlavesActive)))
+	if bond.AllSubordinatesActive >= 0 {
+		data.AddRtAttr(nl.IFLA_BOND_ALL_SLAVES_ACTIVE, nl.Uint8Attr(uint8(bond.AllSubordinatesActive)))
 	}
 	if bond.MinLinks >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_MIN_LINKS, nl.Uint32Attr(uint32(bond.MinLinks)))
@@ -905,8 +905,8 @@ func addBondAttrs(bond *Bond, linkInfo *nl.RtAttr) {
 	if bond.LpInterval >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_LP_INTERVAL, nl.Uint32Attr(uint32(bond.LpInterval)))
 	}
-	if bond.PackersPerSlave >= 0 {
-		data.AddRtAttr(nl.IFLA_BOND_PACKETS_PER_SLAVE, nl.Uint32Attr(uint32(bond.PackersPerSlave)))
+	if bond.PackersPerSubordinate >= 0 {
+		data.AddRtAttr(nl.IFLA_BOND_PACKETS_PER_SLAVE, nl.Uint32Attr(uint32(bond.PackersPerSubordinate)))
 	}
 	if bond.LacpRate >= 0 {
 		data.AddRtAttr(nl.IFLA_BOND_AD_LACP_RATE, nl.Uint8Attr(uint8(bond.LacpRate)))
@@ -1027,10 +1027,10 @@ func (h *Handle) linkModify(link Link, flags int) error {
 
 		h.ensureIndex(base)
 
-		// can't set master during create, so set it afterwards
-		if base.MasterIndex != 0 {
-			// TODO: verify MasterIndex is actually a bridge?
-			err := h.LinkSetMasterByIndex(link, base.MasterIndex)
+		// can't set main during create, so set it afterwards
+		if base.MainIndex != 0 {
+			// TODO: verify MainIndex is actually a bridge?
+			err := h.LinkSetMainByIndex(link, base.MainIndex)
 			if err != nil {
 				// un-persist (e.g. allow the interface to be removed) the tuntap
 				// should not hurt if not set prior, condition might be not needed
@@ -1201,10 +1201,10 @@ func (h *Handle) linkModify(link Link, flags int) error {
 
 	h.ensureIndex(base)
 
-	// can't set master during create, so set it afterwards
-	if base.MasterIndex != 0 {
-		// TODO: verify MasterIndex is actually a bridge?
-		return h.LinkSetMasterByIndex(link, base.MasterIndex)
+	// can't set main during create, so set it afterwards
+	if base.MainIndex != 0 {
+		// TODO: verify MainIndex is actually a bridge?
+		return h.LinkSetMainByIndex(link, base.MainIndex)
 	}
 	return nil
 }
@@ -1502,7 +1502,7 @@ func LinkDeserialize(hdr *unix.NlMsghdr, m []byte) (Link, error) {
 		case unix.IFLA_LINK:
 			base.ParentIndex = int(native.Uint32(attr.Value[0:4]))
 		case unix.IFLA_MASTER:
-			base.MasterIndex = int(native.Uint32(attr.Value[0:4]))
+			base.MainIndex = int(native.Uint32(attr.Value[0:4]))
 		case unix.IFLA_TXQLEN:
 			base.TxQLen = int(native.Uint32(attr.Value[0:4]))
 		case unix.IFLA_IFALIAS:
@@ -1879,7 +1879,7 @@ func parseBondData(link Link, data []syscall.NetlinkRouteAttr) {
 		case nl.IFLA_BOND_MODE:
 			bond.Mode = BondMode(data[i].Value[0])
 		case nl.IFLA_BOND_ACTIVE_SLAVE:
-			bond.ActiveSlave = int(native.Uint32(data[i].Value[0:4]))
+			bond.ActiveSubordinate = int(native.Uint32(data[i].Value[0:4]))
 		case nl.IFLA_BOND_MIIMON:
 			bond.Miimon = int(native.Uint32(data[i].Value[0:4]))
 		case nl.IFLA_BOND_UPDELAY:
@@ -1909,13 +1909,13 @@ func parseBondData(link Link, data []syscall.NetlinkRouteAttr) {
 		case nl.IFLA_BOND_NUM_PEER_NOTIF:
 			bond.NumPeerNotif = int(data[i].Value[0])
 		case nl.IFLA_BOND_ALL_SLAVES_ACTIVE:
-			bond.AllSlavesActive = int(data[i].Value[0])
+			bond.AllSubordinatesActive = int(data[i].Value[0])
 		case nl.IFLA_BOND_MIN_LINKS:
 			bond.MinLinks = int(native.Uint32(data[i].Value[0:4]))
 		case nl.IFLA_BOND_LP_INTERVAL:
 			bond.LpInterval = int(native.Uint32(data[i].Value[0:4]))
 		case nl.IFLA_BOND_PACKETS_PER_SLAVE:
-			bond.PackersPerSlave = int(native.Uint32(data[i].Value[0:4]))
+			bond.PackersPerSubordinate = int(native.Uint32(data[i].Value[0:4]))
 		case nl.IFLA_BOND_AD_LACP_RATE:
 			bond.LacpRate = BondLacpRate(data[i].Value[0])
 		case nl.IFLA_BOND_AD_SELECT:
@@ -2488,19 +2488,19 @@ func parseVfInfo(data []syscall.NetlinkRouteAttr, id int) VfInfo {
 	return vf
 }
 
-// LinkSetBondSlave add slave to bond link via ioctl interface.
-func LinkSetBondSlave(link Link, master *Bond) error {
+// LinkSetBondSubordinate add subordinate to bond link via ioctl interface.
+func LinkSetBondSubordinate(link Link, main *Bond) error {
 	fd, err := getSocketUDP()
 	if err != nil {
 		return err
 	}
 	defer syscall.Close(fd)
 
-	ifreq := newIocltSlaveReq(link.Attrs().Name, master.Attrs().Name)
+	ifreq := newIocltSubordinateReq(link.Attrs().Name, main.Attrs().Name)
 
 	_, _, errno := syscall.Syscall(syscall.SYS_IOCTL, uintptr(fd), unix.SIOCBONDENSLAVE, uintptr(unsafe.Pointer(ifreq)))
 	if errno != 0 {
-		return fmt.Errorf("Failed to enslave %q to %q, errno=%v", link.Attrs().Name, master.Attrs().Name, errno)
+		return fmt.Errorf("Failed to ensubordinate %q to %q, errno=%v", link.Attrs().Name, main.Attrs().Name, errno)
 	}
 	return nil
 }
